@@ -26,7 +26,7 @@ class Evento(models.Model):
 
     tipo = models.CharField(max_length=40, choices=TIPO_CHOICES)
 
-    def __str__(self):
+    def str(self):
         return self.titulo
 
     class Meta:
