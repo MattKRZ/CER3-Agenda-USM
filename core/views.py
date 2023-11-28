@@ -1,7 +1,10 @@
 import datetime
+from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 from django.contrib.auth.models import Group
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Evento
+from django.contrib.auth import logout
 
 # Create your views here.
 def Home(request):
@@ -59,3 +62,7 @@ def Home(request):
     }
 
     return render(request, 'core/userNoLog.html', data)
+
+def logout_view(request):
+    logout(request)
+    return redirect('home')
