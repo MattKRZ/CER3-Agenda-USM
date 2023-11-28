@@ -2,10 +2,12 @@ from django.shortcuts import render
 from core.models import Evento
 from rest_framework import viewsets, permissions, generics
 from .serializers import EventoSerializer
+from rest_framework.permissions import IsAuthenticated
+from .permissions import IsDeveloper
 
 class EventoViewSet(viewsets.ModelViewSet):
     queryset = Evento.objects.all()
-    permission_classes = [permissions.AllowAny]
+    permission_classes = [IsAuthenticated, IsDeveloper]
     serializer_class = EventoSerializer
 
 class EventoList(generics.ListCreateAPIView):
