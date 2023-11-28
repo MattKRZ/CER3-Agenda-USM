@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('rest/', include('api.urls')),
     path('', views.Home, name="home"),
-    path('mostrarevento/', views.mostrar_eventos, name="mostarEvento")
+    path('logout/', views.logout_view, name='logout'),
 ]
+
